@@ -20,7 +20,29 @@ This project is designed for learning modern technologies using Kotlin Multiplat
 
 The project is organized into modules for better separation of concerns:
 
-
+```
+spacexexplorer/
+│
+├── core/                   
+│   ├── di/                 
+│   ├── graphql/            
+│   └── utils/              
+│
+├── feature/
+│   ├── rockets/            
+│   │   ├── data/           
+│   │   ├── domain/         
+│   │   └── presenter/      
+│   │
+│   ├── launches/           
+│   │   ├── data/           
+│   │   ├── domain/         
+│   │   └── presenter/      
+│   │
+│   └── ...               
+│
+└── spacexexplorer/        
+```
 
 ---
 

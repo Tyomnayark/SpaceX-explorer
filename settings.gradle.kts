@@ -1,4 +1,4 @@
-rootProject.name = "KotlinProject"
+rootProject.name = "SpaceXExplorer"
 enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 
 pluginManagement {
@@ -28,5 +28,5 @@ dependencyResolutionManagement {
     }
 }
 
-include(":kmpgraphqlproject")
+include(":spacexexplorer")
 include(":feature_main")
