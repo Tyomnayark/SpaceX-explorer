@@ -6,7 +6,7 @@ This project is designed for learning modern technologies using Kotlin Multiplat
 
 ## Tech Stack 🛠
 
-- **Kotlin Multiplatform**: Shared business logic and data handling across platforms.
+- <span style="color:blue;">**Kotlin Multiplatform**</span>: Shared business logic and data handling across platforms.
 - **Compose Multiplatform**: Declarative UI framework for Android and iOS apps.
 - **Ktor**: Asynchronous HTTP client for networking.
 - **GraphQL**: Integration with the SpaceX API for data retrieval.
