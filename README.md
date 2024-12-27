@@ -25,7 +25,7 @@ The project is organized into modules for better separation of concerns:
 
 ---
 
-Contribution 🤝
+## Contribution 🤝
 
 This project is open for experimentation. Feel free to fork the repository, make changes, and submit pull requests. Contributions and ideas are always welcome!
 
