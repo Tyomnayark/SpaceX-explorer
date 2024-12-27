@@ -12,7 +12,6 @@ This project is designed for learning modern technologies using Kotlin Multiplat
 - **GraphQL**: Integration with the SpaceX API for data retrieval.
 - **Koin**: Dependency injection for managing components.
 - **CocoaPods**: Integration with iOS for seamless native support.
-- **Apollo GraphQL**: For generating type-safe GraphQL queries.
 - **Modular Architecture**: Logical project structure for scalability and maintainability.
 
 ---
