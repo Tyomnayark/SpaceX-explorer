@@ -1,4 +1,6 @@
-
+import org.jetbrains.compose.ComposePlugin.CommonComponentsDependencies.resources
+import org.jetbrains.compose.desktop.application.dsl.TargetFormat
+import org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 
 plugins {
@@ -6,12 +8,13 @@ plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.composeMultiplatform)
     alias(libs.plugins.composeCompiler)
-    alias(libs.plugins.graphql)
     alias(libs.plugins.kotlinCocoapods)
+
 }
 
 kotlin {
     androidTarget {
+        @OptIn(ExperimentalKotlinGradlePluginApi::class)
         compilerOptions {
             jvmTarget.set(JvmTarget.JVM_11)
         }
@@ -27,7 +30,7 @@ kotlin {
         version = "1.0"
         ios.deploymentTarget = "16.0"
         framework {
-            baseName = "kmp graphql"
+            baseName = "ComposeApp"
             isStatic = true
         }
     }
@@ -40,7 +43,6 @@ kotlin {
 
             implementation(libs.koin.android)
         }
-
         commonMain.dependencies {
             implementation(compose.runtime)
             implementation(compose.foundation)
@@ -55,7 +57,7 @@ kotlin {
             implementation(libs.ktor.cio)
 
             implementation(libs.graphql)
-            implementation(libs.graphql.cache)
+//            implementation(libs.graphql.cache)
 
             implementation(libs.koin.core)
             implementation(libs.koin.test)
@@ -64,8 +66,6 @@ kotlin {
             implementation(project(":feature_main"))
         }
     }
-
-
 }
 
 android {
@@ -99,8 +99,3 @@ dependencies {
     debugImplementation(compose.uiTooling)
 }
 
-//apollo {
-//    service("service") {
-//        packageName.set("org.example")
-//    }
-//}

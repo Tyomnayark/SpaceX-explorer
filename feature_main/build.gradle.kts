@@ -1,19 +1,22 @@
+import org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 
 plugins {
     alias(libs.plugins.kotlinMultiplatform)
-    alias(libs.plugins.androidLibrary)
     alias(libs.plugins.kotlinCocoapods)
+    alias(libs.plugins.androidLibrary)
     alias(libs.plugins.composeMultiplatform)
     alias(libs.plugins.composeCompiler)
 }
 
 kotlin {
     androidTarget {
+        @OptIn(ExperimentalKotlinGradlePluginApi::class)
         compilerOptions {
             jvmTarget.set(JvmTarget.JVM_11)
         }
     }
+
     iosX64()
     iosArm64()
     iosSimulatorArm64()
@@ -28,10 +31,14 @@ kotlin {
             isStatic = true
         }
     }
-    
+
     sourceSets {
         androidMain.dependencies {
             implementation(compose.preview)
+            implementation(libs.androidx.activity.compose)
+
+            implementation(libs.koin.android)
+
         }
 
         commonMain.dependencies {
@@ -48,7 +55,7 @@ kotlin {
             implementation(libs.ktor.cio)
 
             implementation(libs.graphql)
-            implementation(libs.graphql.cache)
+//            implementation(libs.graphql.cache)
 
             implementation(libs.koin.core)
             implementation(libs.koin.test)
@@ -62,23 +69,15 @@ kotlin {
 }
 
 android {
-    namespace = "com.tyom.feature_main"
+    namespace = "com.example.feature_main"
     compileSdk = libs.versions.android.compileSdk.get().toInt()
 
     defaultConfig {
         minSdk = libs.versions.android.minSdk.get().toInt()
         targetSdk = libs.versions.android.targetSdk.get().toInt()
     }
-    packaging {
-        resources {
-            excludes += "/META-INF/{AL2.0,LGPL2.1}"
-        }
-    }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
     }
-}
-dependencies {
-    implementation(libs.androidx.runtime.android)
 }

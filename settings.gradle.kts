@@ -1,4 +1,4 @@
-rootProject.name = "SpaceXExplorer"
+rootProject.name = "KotlinProject"
 enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 
 pluginManagement {
@@ -28,5 +28,5 @@ dependencyResolutionManagement {
     }
 }
 
-include(":spacexexplorer")
+include(":composeApp")
 include(":feature_main")

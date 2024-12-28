@@ -1,4 +1,4 @@
-package com.tyom.feature_main
+package com.example.feature_main
 
 interface Platform {
     val name: String

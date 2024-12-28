@@ -1,4 +1,4 @@
-package com.tyom.feature_main
+package com.example.feature_main
 
 import platform.UIKit.UIDevice
 

@@ -10,12 +10,15 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import com.tyom.feature_main.ComposeFunc
+import com.example.feature_main.ComposeFunc
 import org.jetbrains.compose.resources.painterResource
-import spacexexplorer.spacexexplorer.generated.resources.Res
-import spacexexplorer.spacexexplorer.generated.resources.compose_multiplatform
+import org.jetbrains.compose.ui.tooling.preview.Preview
+
+import kotlinproject.composeapp.generated.resources.Res
+import kotlinproject.composeapp.generated.resources.compose_multiplatform
 
 @Composable
+@Preview
 fun App() {
     MaterialTheme {
         var showContent by remember { mutableStateOf(false) }
@@ -27,6 +30,7 @@ fun App() {
                 val greeting = remember { Greeting().greet() }
                 Column(Modifier.fillMaxWidth(), horizontalAlignment = Alignment.CenterHorizontally) {
                     Image(painterResource(Res.drawable.compose_multiplatform), null)
+                    Text("Compose: $greeting")
                     ComposeFunc()
                 }
             }
