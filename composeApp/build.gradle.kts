@@ -32,6 +32,7 @@ kotlin {
         framework {
             baseName = "ComposeApp"
             isStatic = true
+            transitiveExport = true
         }
     }
 
