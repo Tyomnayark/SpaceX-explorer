@@ -1,23 +1,23 @@
 Pod::Spec.new do |spec|
-    spec.name                     = 'feature_main'
+    spec.name                     = 'features'
     spec.version                  = '1.0'
     spec.homepage                 = 'Link to the Shared Module homepage'
     spec.source                   = { :http=> ''}
     spec.authors                  = ''
     spec.license                  = ''
     spec.summary                  = 'Some description for the Shared Module'
-    spec.vendored_frameworks      = 'build/cocoapods/framework/feature_main.framework'
+    spec.vendored_frameworks      = 'build/cocoapods/framework/features.framework'
     spec.libraries                = 'c++'
     spec.ios.deployment_target    = '16.0'
                 
                 
-    if !Dir.exist?('build/cocoapods/framework/feature_main.framework') || Dir.empty?('build/cocoapods/framework/feature_main.framework')
+    if !Dir.exist?('build/cocoapods/framework/features.framework') || Dir.empty?('build/cocoapods/framework/features.framework')
         raise "
 
-        Kotlin framework 'feature_main' doesn't exist yet, so a proper Xcode project can't be generated.
+        Kotlin framework 'features' doesn't exist yet, so a proper Xcode project can't be generated.
         'pod install' should be executed after running ':generateDummyFramework' Gradle task:
 
-            ./gradlew :feature_main:generateDummyFramework
+            ./gradlew :features:generateDummyFramework
 
         Alternatively, proper pod installation is performed during Gradle sync in the IDE (if Podfile location is set)"
     end
@@ -27,13 +27,13 @@ Pod::Spec.new do |spec|
     }
                 
     spec.pod_target_xcconfig = {
-        'KOTLIN_PROJECT_PATH' => ':feature_main',
-        'PRODUCT_MODULE_NAME' => 'feature_main',
+        'KOTLIN_PROJECT_PATH' => ':features',
+        'PRODUCT_MODULE_NAME' => 'features',
     }
                 
     spec.script_phases = [
         {
-            :name => 'Build feature_main',
+            :name => 'Build features',
             :execution_position => :before_compile,
             :shell_path => '/bin/sh',
             :script => <<-SCRIPT

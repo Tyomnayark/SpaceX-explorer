@@ -1,4 +1,4 @@
-package com.example.feature_main
+package com.example.features
 
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable

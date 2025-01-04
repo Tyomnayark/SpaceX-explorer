@@ -64,7 +64,7 @@ kotlin {
             implementation(libs.koin.test)
             implementation(libs.koin.compose)
 
-            implementation(project(":feature_main"))
+            implementation(project(":features"))
         }
     }
 }

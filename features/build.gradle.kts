@@ -27,7 +27,7 @@ kotlin {
         version = "1.0"
         ios.deploymentTarget = "16.0"
         framework {
-            baseName = "feature_main"
+            baseName = "features"
             isStatic = true
         }
     }
@@ -69,7 +69,7 @@ kotlin {
 }
 
 android {
-    namespace = "com.example.feature_main"
+    namespace = "com.example.features"
     compileSdk = libs.versions.android.compileSdk.get().toInt()
 
     defaultConfig {
