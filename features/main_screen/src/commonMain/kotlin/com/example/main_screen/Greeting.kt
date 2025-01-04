@@ -1,4 +1,4 @@
-package com.example.features
+package com.example.main_screen
 
 class Greeting {
     private val platform: Platform = getPlatform()

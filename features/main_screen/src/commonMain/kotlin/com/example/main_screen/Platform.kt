@@ -1,4 +1,4 @@
-package com.example.features
+package com.example.main_screen
 
 interface Platform {
     val name: String

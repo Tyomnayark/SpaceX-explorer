@@ -1,9 +1,9 @@
-package com.example.features
+package com.example.main_screen
 
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 
 @Composable
 fun ComposeFunc() {
-    Text("Hello Compose feature main")
+    Text("Hello Compose main screen in features")
 }
