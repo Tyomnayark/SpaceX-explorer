@@ -6,7 +6,6 @@ plugins {
     alias(libs.plugins.kotlinCocoapods)
     alias(libs.plugins.androidLibrary)
     alias(libs.plugins.kotlinSerialization)
-//    alias(libs.plugins.graphql)
 }
 
 kotlin {
