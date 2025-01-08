@@ -14,14 +14,18 @@ androidx-test-junit = "1.2.1"
 compose-multiplatform = "1.7.0"
 junit = "4.13.2"
 kotlin = "2.0.20"
-graphql = "4.1.0"
+graphql = "3.8.3"
+graphql-support = "0.1.0"
 ktor = "3.0.2"
-koin = "3.2.0"
+koin = "3.4.3"
 koin-compose = "1.0.4"
 jetbrainsKotlinJvm = "1.9.0"
 runtimeAndroid = "1.7.6"
 decompose = "3.2.2"
 decompose-extentions = "3.2.2"
+kotlinxSerializationJson = "1.7.3"
+coroutines = "1.9.0"
+
 
 [libraries]
 kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
@@ -36,17 +40,28 @@ androidx-constraintlayout = { group = "androidx.constraintlayout", name = "const
 androidx-activity-compose = { module = "androidx.activity:activity-compose", version.ref = "androidx-activityCompose" }
 androidx-lifecycle-viewmodel = { group = "org.jetbrains.androidx.lifecycle", name = "lifecycle-viewmodel", version.ref = "androidx-lifecycle" }
 androidx-lifecycle-runtime-compose = { group = "org.jetbrains.androidx.lifecycle", name = "lifecycle-runtime-compose", version.ref = "androidx-lifecycle" }
+androidx-runtime-android = { group = "androidx.compose.runtime", name = "runtime-android", version.ref = "runtimeAndroid" }
+kotlinx-serialization-json = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "kotlinxSerializationJson" }
+
+kotlinx-coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "coroutines" }
+kotlinx-coroutines-android = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-android", version.ref = "coroutines" }
+
 graphql = { group = "com.apollographql.apollo", name = "apollo-runtime", version.ref = "graphql" }
-graphql-cache = { group = "com.apollographql.apollo", name = "apollo-normalized-cache-sqlite", version.ref = "graphql" }
-ktor = { group = "io.ktor", name = "ktor-client-core", version.ref = "ktor" }
-ktor-cio = { group = "io.ktor", name = "ktor-client-cio", version.ref = "ktor" }
+graphql-ktor-support = { group = "com.apollographql.ktor", name = "apollo-engine-ktor", version.ref = "graphql-support" }
+
+ktor-client-core = { module = "io.ktor:ktor-client-core", version.ref = "ktor" }
+ktor-client-okhttp = { module = "io.ktor:ktor-client-okhttp", version.ref = "ktor" }
+ktor-client-darwin = { module = "io.ktor:ktor-client-darwin", version.ref = "ktor" }
+ktor-negotiation = { group = "io.ktor", name = "ktor-client-content-negotiation", version.ref = "ktor" }
+ktor-serialization = { group = "io.ktor", name = "ktor-serialization-kotlinx-json", version.ref = "ktor" }
+
 koin-core = { group = "io.insert-koin", name = "koin-core", version.ref = "koin" }
 koin-compose = { group = "io.insert-koin", name = "koin-compose", version.ref = "koin-compose" }
 koin-test = { group = "io.insert-koin", name = "koin-test", version.ref = "koin" }
 koin-android = { group = "io.insert-koin", name = "koin-android", version.ref = "koin" }
-androidx-runtime-android = { group = "androidx.compose.runtime", name = "runtime-android", version.ref = "runtimeAndroid" }
-decompose = { group = "com.arkivanov.decompose", name = "decompose", version.ref = "decompose"}
-decompose-extensions = { group = "com.arkivanov.decompose", name = "extensions-compose", version.ref = "decompose-extentions"}
+
+decompose = { group = "com.arkivanov.decompose", name = "decompose", version.ref = "decompose" }
+decompose-extensions = { group = "com.arkivanov.decompose", name = "extensions-compose", version.ref = "decompose-extentions" }
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }
@@ -54,7 +69,7 @@ androidLibrary = { id = "com.android.library", version.ref = "agp" }
 composeMultiplatform = { id = "org.jetbrains.compose", version.ref = "compose-multiplatform" }
 composeCompiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
 kotlinMultiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
-graphql = { id = "com.apollographql.apollo", version.ref = "graphql" }
+graphql = { id = "com.apollographql.apollo3", version.ref = "graphql" }
 jetbrainsKotlinJvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "jetbrainsKotlinJvm" }
 kotlinCocoapods = { id = "org.jetbrains.kotlin.native.cocoapods", version.ref = "kotlin" }
 kotlinSerialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }

@@ -51,12 +51,6 @@ kotlin {
             implementation(libs.androidx.lifecycle.viewmodel)
             implementation(libs.androidx.lifecycle.runtime.compose)
 
-            implementation(libs.ktor)
-            implementation(libs.ktor.cio)
-
-            implementation(libs.graphql)
-//            implementation(libs.graphql.cache)
-
             implementation(libs.koin.core)
             implementation(libs.koin.test)
             implementation(libs.koin.compose)
