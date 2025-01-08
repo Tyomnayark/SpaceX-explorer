@@ -11,19 +11,23 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 
 @Composable
-fun MainPageContent(component: MainPageComponent) {
+fun MainPageUi(component: MainPageComponent) {
 
     val text = component.text.collectAsStateWithLifecycle()
 
     Column {
-        Text(text.value)
+        Text(
+            text = text.value,
+            fontSize = 40.sp
+        )
         Box(
             modifier = Modifier
-                .height(13.dp)
-                .width(100.dp)
+                .height(50.dp)
+                .width(200.dp)
                 .background(color = Color.Black)
                 .clickable {
                     component.onButtonClick()
