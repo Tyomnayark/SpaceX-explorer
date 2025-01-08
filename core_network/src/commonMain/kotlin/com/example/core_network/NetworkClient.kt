@@ -8,6 +8,8 @@ import io.ktor.client.plugins.HttpTimeout
 import io.ktor.client.plugins.contentnegotiation.ContentNegotiation
 import io.ktor.serialization.kotlinx.json.*
 
+const val BASE_URL = "https://api.spacexdata.com/v3"
+
 fun createKtorClient(): HttpClient {
     return HttpClient {
         install(HttpTimeout) {
@@ -22,7 +24,7 @@ fun createKtorClient(): HttpClient {
 }
 
 
-fun createApolloClient(httpClient: HttpClient, baseUrl: String): ApolloClient {
+fun createApolloClient(httpClient: HttpClient, baseUrl: String = BASE_URL): ApolloClient {
     return ApolloClient.Builder()
         .serverUrl(baseUrl)
         .httpEngine(KtorHttpEngine())

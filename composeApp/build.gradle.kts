@@ -71,6 +71,7 @@ kotlin {
             implementation(project(":features"))
             implementation(project(":features:main_screen"))
             implementation(project(":features:settings"))
+            implementation(project(":core_network"))
         }
     }
 }
