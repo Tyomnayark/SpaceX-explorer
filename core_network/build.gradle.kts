@@ -1,22 +1,17 @@
-import org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi
-import org.jetbrains.kotlin.gradle.dsl.JvmTarget
-
 plugins {
     alias(libs.plugins.kotlinMultiplatform)
     alias(libs.plugins.kotlinCocoapods)
     alias(libs.plugins.androidLibrary)
-    alias(libs.plugins.composeMultiplatform)
-    alias(libs.plugins.composeCompiler)
 }
 
 kotlin {
     androidTarget {
-        @OptIn(ExperimentalKotlinGradlePluginApi::class)
-        compilerOptions {
-            jvmTarget.set(JvmTarget.JVM_11)
+        compilations.all {
+            kotlinOptions {
+                jvmTarget = "1.8"
+            }
         }
     }
-
     iosX64()
     iosArm64()
     iosSimulatorArm64()
@@ -27,29 +22,13 @@ kotlin {
         version = "1.0"
         ios.deploymentTarget = "16.0"
         framework {
-            baseName = "main_screen"
+            baseName = "core_network"
             isStatic = true
         }
     }
-
+    
     sourceSets {
-        androidMain.dependencies {
-            implementation(compose.preview)
-            implementation(libs.androidx.activity.compose)
-
-            implementation(libs.koin.android)
-
-        }
-
         commonMain.dependencies {
-            implementation(compose.runtime)
-            implementation(compose.foundation)
-            implementation(compose.material)
-            implementation(compose.ui)
-            implementation(compose.components.resources)
-            implementation(compose.components.uiToolingPreview)
-            implementation(libs.androidx.lifecycle.viewmodel)
-            implementation(libs.androidx.lifecycle.runtime.compose)
 
             implementation(libs.ktor)
             implementation(libs.ktor.cio)
@@ -60,11 +39,7 @@ kotlin {
             implementation(libs.koin.core)
             implementation(libs.koin.test)
             implementation(libs.koin.compose)
-
-            implementation(libs.decompose)
-//            implementation(libs.decompose.extensions)
         }
-
         commonTest.dependencies {
             implementation(libs.kotlin.test)
         }
@@ -72,7 +47,7 @@ kotlin {
 }
 
 android {
-    namespace = "com.example.main_screen"
+    namespace = "com.example.core_network"
     compileSdk = libs.versions.android.compileSdk.get().toInt()
 
     defaultConfig {

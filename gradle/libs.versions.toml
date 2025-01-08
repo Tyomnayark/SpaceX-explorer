@@ -13,13 +13,15 @@ androidx-material = "1.12.0"
 androidx-test-junit = "1.2.1"
 compose-multiplatform = "1.7.0"
 junit = "4.13.2"
-kotlin = "2.0.0"
+kotlin = "2.0.20"
 graphql = "4.1.0"
 ktor = "3.0.2"
 koin = "3.2.0"
 koin-compose = "1.0.4"
 jetbrainsKotlinJvm = "1.9.0"
 runtimeAndroid = "1.7.6"
+decompose = "3.2.2"
+decompose-extentions = "3.2.2"
 
 [libraries]
 kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
@@ -43,6 +45,8 @@ koin-compose = { group = "io.insert-koin", name = "koin-compose", version.ref = 
 koin-test = { group = "io.insert-koin", name = "koin-test", version.ref = "koin" }
 koin-android = { group = "io.insert-koin", name = "koin-android", version.ref = "koin" }
 androidx-runtime-android = { group = "androidx.compose.runtime", name = "runtime-android", version.ref = "runtimeAndroid" }
+decompose = { group = "com.arkivanov.decompose", name = "decompose", version.ref = "decompose"}
+decompose-extensions = { group = "com.arkivanov.decompose", name = "extensions-compose", version.ref = "decompose-extentions"}
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }
@@ -53,3 +57,4 @@ kotlinMultiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref =
 graphql = { id = "com.apollographql.apollo", version.ref = "graphql" }
 jetbrainsKotlinJvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "jetbrainsKotlinJvm" }
 kotlinCocoapods = { id = "org.jetbrains.kotlin.native.cocoapods", version.ref = "kotlin" }
+kotlinSerialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }

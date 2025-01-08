@@ -9,6 +9,7 @@ plugins {
     alias(libs.plugins.composeMultiplatform)
     alias(libs.plugins.composeCompiler)
     alias(libs.plugins.kotlinCocoapods)
+    alias(libs.plugins.kotlinSerialization)
 
 }
 
@@ -44,6 +45,11 @@ kotlin {
 
             implementation(libs.koin.android)
         }
+
+        iosMain.dependencies {
+//            implementation(libs.decompose.extensions)
+        }
+
         commonMain.dependencies {
             implementation(compose.runtime)
             implementation(compose.foundation)
@@ -64,8 +70,13 @@ kotlin {
             implementation(libs.koin.test)
             implementation(libs.koin.compose)
 
+            implementation(libs.decompose)
+            implementation(libs.decompose.extensions)
+
+
             implementation(project(":features"))
             implementation(project(":features:main_screen"))
+            implementation(project(":features:settings"))
         }
     }
 }
