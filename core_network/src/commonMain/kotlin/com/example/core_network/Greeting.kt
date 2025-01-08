@@ -1,4 +1,4 @@
-package com.example.main_screen
+package com.example.core_network
 
 class Greeting {
     private val platform: Platform = getPlatform()

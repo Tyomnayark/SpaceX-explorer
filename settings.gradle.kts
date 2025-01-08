@@ -31,3 +31,5 @@ dependencyResolutionManagement {
 include(":composeApp")
 include(":features")
 include(":features:main_screen")
+include(":core_network")
+include(":features:settings")

@@ -27,7 +27,7 @@ kotlin {
         version = "1.0"
         ios.deploymentTarget = "16.0"
         framework {
-            baseName = "main_screen"
+            baseName = "settings"
             isStatic = true
         }
     }
@@ -72,7 +72,7 @@ kotlin {
 }
 
 android {
-    namespace = "com.example.main_screen"
+    namespace = "com.example.settings"
     compileSdk = libs.versions.android.compileSdk.get().toInt()
 
     defaultConfig {
