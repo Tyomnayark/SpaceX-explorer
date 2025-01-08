@@ -1,15 +1,19 @@
+import org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi
+import org.jetbrains.kotlin.gradle.dsl.JvmTarget
+
 plugins {
     alias(libs.plugins.kotlinMultiplatform)
     alias(libs.plugins.kotlinCocoapods)
     alias(libs.plugins.androidLibrary)
+    alias(libs.plugins.kotlinSerialization)
+//    alias(libs.plugins.graphql)
 }
 
 kotlin {
     androidTarget {
-        compilations.all {
-            kotlinOptions {
-                jvmTarget = "1.8"
-            }
+        @OptIn(ExperimentalKotlinGradlePluginApi::class)
+        compilerOptions {
+            jvmTarget.set(JvmTarget.JVM_11)
         }
     }
     iosX64()
@@ -28,13 +32,24 @@ kotlin {
     }
     
     sourceSets {
-        commonMain.dependencies {
+        androidMain.dependencies {
+            implementation(libs.ktor.client.okhttp)
+            implementation(libs.kotlinx.coroutines.android)
+        }
 
-            implementation(libs.ktor)
-            implementation(libs.ktor.cio)
+        iosMain.dependencies {
+            implementation(libs.ktor.client.darwin)
+        }
+
+        commonMain.dependencies {
+            implementation(libs.kotlinx.coroutines.core)
+            implementation(libs.ktor.client.core)
+            implementation(libs.ktor.negotiation)
+            implementation(libs.kotlinx.serialization.json)
+            implementation(libs.ktor.serialization)
 
             implementation(libs.graphql)
-//            implementation(libs.graphql.cache)
+            implementation(libs.graphql.ktor.support)
 
             implementation(libs.koin.core)
             implementation(libs.koin.test)

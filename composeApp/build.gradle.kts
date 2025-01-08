@@ -60,12 +60,6 @@ kotlin {
             implementation(libs.androidx.lifecycle.viewmodel)
             implementation(libs.androidx.lifecycle.runtime.compose)
 
-            implementation(libs.ktor)
-            implementation(libs.ktor.cio)
-
-            implementation(libs.graphql)
-//            implementation(libs.graphql.cache)
-
             implementation(libs.koin.core)
             implementation(libs.koin.test)
             implementation(libs.koin.compose)
@@ -74,9 +68,16 @@ kotlin {
             implementation(libs.decompose.extensions)
 
 
-            implementation(project(":features"))
             implementation(project(":features:main_screen"))
             implementation(project(":features:settings"))
+
+            implementation(project(":core_network"))
+
+            implementation(project(":data:settings_data"))
+            implementation(project(":data:main_screen_data"))
+
+            implementation(project(":domain:settings_domain"))
+            implementation(project(":domain:main_screen_domain"))
         }
     }
 }
