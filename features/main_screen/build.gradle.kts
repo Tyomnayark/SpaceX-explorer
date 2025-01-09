@@ -58,6 +58,7 @@ kotlin {
             implementation(libs.decompose)
 
             implementation(project(":domain:main_screen_domain"))
+
             implementation(project(":core_utils"))
             implementation(project(":core_resources"))
         }

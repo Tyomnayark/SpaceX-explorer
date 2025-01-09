@@ -2,6 +2,7 @@ package com.example.main_screen.ui
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.border
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -26,6 +27,8 @@ import org.jetbrains.compose.resources.stringResource
 fun MainPageUi(component: MainPageComponent) {
 
     val buttons = component.buttons.collectAsStateWithLifecycle()
+    val text =  component.text.collectAsStateWithLifecycle()
+
     val lazyGridState = rememberLazyGridState()
 
     LazyVerticalGrid(
@@ -33,7 +36,7 @@ fun MainPageUi(component: MainPageComponent) {
         state = lazyGridState,
         modifier = Modifier.padding(30.dp)
     ) {
-        itemsIndexed(buttons.value) { index, item ->
+        itemsIndexed(buttons.value) { _, item ->
             Box(
                 modifier = Modifier
                     .padding(5.dp)
@@ -42,7 +45,10 @@ fun MainPageUi(component: MainPageComponent) {
                         color = Color(0xFFF19E39),
                         width = 3.dp,
                         shape = RoundedCornerShape(20.dp)
-                    ),
+                    )
+                    .clickable {
+                        component.onButtonClick(item)
+                    },
                 contentAlignment = Alignment.Center
             ) {
                 Image(
@@ -54,7 +60,7 @@ fun MainPageUi(component: MainPageComponent) {
                 )
                 Text(
                     text = stringResource(item.textRes),
-                    fontSize = 20.sp,
+                    fontSize = 18.sp,
                     modifier = Modifier
                         .padding(vertical = 10.dp)
                         .align(
@@ -62,6 +68,12 @@ fun MainPageUi(component: MainPageComponent) {
                         )
                 )
             }
+        }
+        item {
+            Text(
+                text = text.value,
+                fontSize = 18.sp
+            )
         }
     }
 }

@@ -24,6 +24,8 @@ class MainPageComponentImpl(
 
     private val coroutineScope = componentCoroutineScope()
 
+    override val text = MutableStateFlow("") //удалить!!
+
     override val buttons: MutableStateFlow<List<MainPageRequestButton>> = MutableStateFlow(
         listOf(
             MainPageRequestButton.FULL_ROCKETS_INFO,
@@ -31,9 +33,18 @@ class MainPageComponentImpl(
         )
     )
 
-    override fun onButtonClick() {
+    override fun onButtonClick(button: MainPageRequestButton) {
         coroutineScope.launch {
-            getRocketsFullInfoUseCase.execute()
+            val response = when (button) {
+                MainPageRequestButton.FULL_ROCKETS_INFO -> {
+                    getRocketsFullInfoUseCase.execute()
+                }
+
+                MainPageRequestButton.BASIC_ROCKETS_INFO -> {
+                    listOf()
+                }
+            }
+            text.update { response.toString() }
         }
     }
 }

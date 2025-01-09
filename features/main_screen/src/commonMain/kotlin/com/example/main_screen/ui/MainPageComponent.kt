@@ -5,6 +5,7 @@ import kotlinx.coroutines.flow.MutableStateFlow
 
 interface MainPageComponent {
     val buttons: MutableStateFlow<List<MainPageRequestButton>>
+    val text: MutableStateFlow<String> //удалить!
 
-    fun onButtonClick()
+    fun onButtonClick(button: MainPageRequestButton)
 }
