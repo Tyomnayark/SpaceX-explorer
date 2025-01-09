@@ -1,5 +1,7 @@
 package com.example.main_screen.ui
 
+import androidx.compose.material.Text
+import androidx.compose.runtime.Composable
 import com.arkivanov.decompose.ComponentContext
 import com.arkivanov.essenty.lifecycle.Lifecycle
 import com.arkivanov.essenty.lifecycle.doOnDestroy
@@ -19,7 +21,7 @@ import org.koin.core.component.get
 
 class MainPageComponentImpl(
     val componentContext: ComponentContext,
-    private val getRocketsFullInfoUseCase: GetRocketsFullInfoUseCase,
+    private val getRocketsFullInfoUseCase: GetRocketsFullInfoUseCase
 ) : ComponentContext by componentContext, MainPageComponent, KoinComponent {
 
     private val coroutineScope = componentCoroutineScope()
