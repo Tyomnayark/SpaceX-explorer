@@ -17,8 +17,7 @@ fun MainViewController() = ComposeUIViewController {
     RootContent(root)
 }
 
-
-private fun initKoin() {
+ fun initKoin() {
     startKoin {
         modules(
             appModules

@@ -13,6 +13,7 @@ import org.example.project.navigation.RootContent
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         val root =
             RootComponentImpl(
                 componentContext = defaultComponentContext(),

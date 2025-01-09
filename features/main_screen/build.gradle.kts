@@ -1,5 +1,6 @@
 import org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
+//import org.jetbrains.kotlin.gradle.internal.dsl.KotlinMultiplatformSourceSetConventionsImpl.commonMain
 
 plugins {
     alias(libs.plugins.kotlinMultiplatform)
@@ -38,7 +39,6 @@ kotlin {
             implementation(libs.androidx.activity.compose)
 
             implementation(libs.koin.android)
-
         }
 
         commonMain.dependencies {
@@ -56,7 +56,10 @@ kotlin {
             implementation(libs.koin.compose)
 
             implementation(libs.decompose)
-//            implementation(libs.decompose.extensions)
+
+            implementation(project(":domain:main_screen_domain"))
+            implementation(project(":core_utils"))
+            implementation(project(":core_resources"))
         }
 
         commonTest.dependencies {

@@ -38,25 +38,20 @@ kotlin {
             implementation(libs.androidx.activity.compose)
 
             implementation(libs.koin.android)
-
         }
 
         commonMain.dependencies {
-            implementation(compose.runtime)
-            implementation(compose.foundation)
-            implementation(compose.material)
-            implementation(compose.ui)
-            implementation(compose.components.resources)
-            implementation(compose.components.uiToolingPreview)
-            implementation(libs.androidx.lifecycle.viewmodel)
-            implementation(libs.androidx.lifecycle.runtime.compose)
-
             implementation(libs.koin.core)
             implementation(libs.koin.test)
             implementation(libs.koin.compose)
 
-            implementation(libs.decompose)
-//            implementation(libs.decompose.extensions)
+            implementation(libs.kotlinx.coroutines.core)
+            implementation(libs.kotlinx.serialization.json)
+
+            implementation(libs.graphql)
+
+            implementation(project(":domain:main_screen_domain"))
+            implementation(project(":core_network"))
         }
 
         commonTest.dependencies {

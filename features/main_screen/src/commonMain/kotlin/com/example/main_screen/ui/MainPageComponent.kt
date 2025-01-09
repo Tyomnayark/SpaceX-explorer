@@ -1,11 +1,10 @@
 package com.example.main_screen.ui
 
+import com.example.main_screen.models.MainPageRequestButton
 import kotlinx.coroutines.flow.MutableStateFlow
 
 interface MainPageComponent {
-    val text: MutableStateFlow<String>
+    val buttons: MutableStateFlow<List<MainPageRequestButton>>
 
     fun onButtonClick()
-
-    fun onSendRequest()
 }

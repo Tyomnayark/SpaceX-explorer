@@ -9,6 +9,12 @@ plugins {
     alias(libs.plugins.composeCompiler)
 }
 
+compose.resources {
+    publicResClass = true
+    packageOfResClass = "src.commonMain.composeResources"
+    generateResClass = auto
+}
+
 kotlin {
     androidTarget {
         @OptIn(ExperimentalKotlinGradlePluginApi::class)
@@ -27,12 +33,14 @@ kotlin {
         version = "1.0"
         ios.deploymentTarget = "16.0"
         framework {
-            baseName = "main_screen_domain"
+            baseName = "core_resources"
             isStatic = true
         }
     }
 
+
     sourceSets {
+
         androidMain.dependencies {
             implementation(compose.preview)
             implementation(libs.androidx.activity.compose)
@@ -42,26 +50,32 @@ kotlin {
         }
 
         commonMain.dependencies {
+            implementation(compose.runtime)
+            implementation(compose.foundation)
+            implementation(compose.material)
+            implementation(compose.ui)
+            implementation(compose.components.resources)
+            implementation(compose.components.uiToolingPreview)
+            implementation(libs.androidx.lifecycle.viewmodel)
+            implementation(libs.androidx.lifecycle.runtime.compose)
+
             implementation(libs.koin.core)
             implementation(libs.koin.test)
             implementation(libs.koin.compose)
 
-            implementation(libs.kotlinx.coroutines.core)
-            implementation(libs.kotlinx.serialization.json)
-
-            implementation(libs.graphql)
-
-            implementation(project(":core_network"))
+            implementation(libs.decompose)
         }
 
         commonTest.dependencies {
             implementation(libs.kotlin.test)
         }
     }
+
+
 }
 
 android {
-    namespace = "com.example.main_screen_domain"
+    namespace = "com.example.core_resources"
     compileSdk = libs.versions.android.compileSdk.get().toInt()
 
     defaultConfig {

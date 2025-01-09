@@ -1,0 +1,17 @@
+query RocketsFullQuery {
+    rockets {
+        active
+        boosters
+        company
+        cost_per_launch
+        country
+        description
+        first_flight
+        id
+        name
+        stages
+        success_rate_pct
+        type
+        wikipedia
+    }
+}

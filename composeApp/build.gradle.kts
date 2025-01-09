@@ -72,6 +72,8 @@ kotlin {
             implementation(project(":features:settings"))
 
             implementation(project(":core_network"))
+            implementation(project(":core_utils"))
+            implementation(project(":core_resources"))
 
             implementation(project(":data:settings_data"))
             implementation(project(":data:main_screen_data"))
