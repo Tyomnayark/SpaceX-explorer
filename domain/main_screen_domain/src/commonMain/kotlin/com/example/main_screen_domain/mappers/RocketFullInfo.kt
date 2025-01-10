@@ -1,27 +1,12 @@
-package com.example.main_screen_domain.models
+package com.example.main_screen_domain.mappers
 
 import com.apollographql.apollo3.api.ApolloResponse
 import com.example.core_network.RocketsFullQuery
+import com.example.main_screen_domain.models.RequestInfoList
 
-data class RocketFullInfoModel(
-    val active: Boolean,
-    val boosters: Int,
-    val company: String,
-    val costPerLaunch: Int,
-    val country: String,
-    val description: String,
-//    val firstFlight: String,
-    val id: String,
-    val name: String,
-    val stages: Int,
-    val successRatePct: Int,
-    val type: String,
-    val wikipedia: String
-)
-
-fun ApolloResponse<RocketsFullQuery.Data>.toRocketFullInfoModelList(): List<RocketFullInfoModel> {
+fun ApolloResponse<RocketsFullQuery.Data>.toRocketFullInfoModelList(): List<RequestInfoList.RocketFullInfoList> {
     val rockets = this.data?.rockets?.map { rocket ->
-        RocketFullInfoModel(
+        RequestInfoList.RocketFullInfoList(
             id = rocket?.id ?: "",
             name = rocket?.name ?: "",
             description = rocket?.description ?: "",

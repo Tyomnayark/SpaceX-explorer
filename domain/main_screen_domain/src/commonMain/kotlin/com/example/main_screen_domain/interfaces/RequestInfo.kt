@@ -1,3 +1,0 @@
-package com.example.main_screen_domain.interfaces
-
-interface RequestInfo

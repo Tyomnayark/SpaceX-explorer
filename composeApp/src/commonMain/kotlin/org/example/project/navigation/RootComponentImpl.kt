@@ -2,11 +2,14 @@ package org.example.project.navigation
 
 import com.arkivanov.decompose.ComponentContext
 import com.arkivanov.decompose.router.stack.StackNavigation
-import kotlinx.serialization.Serializable
 import com.arkivanov.decompose.router.stack.childStack
+import com.arkivanov.decompose.router.stack.navigate
+import com.arkivanov.decompose.router.stack.push
 import com.example.info_screen.ui.InfoComponentImpl
 import com.example.main_screen.ui.MainPageComponentImpl
+import com.example.main_screen_domain.models.RequestInfoList
 import com.example.settings.ui.SettingsComponentImpl
+import kotlinx.serialization.Serializable
 import org.koin.core.component.KoinComponent
 import org.koin.core.component.get
 
@@ -33,8 +36,12 @@ class RootComponentImpl(
         is ChildConfig.MainPage -> {
             RootComponent.Child.MainPage(
                 MainPageComponentImpl(
-                    componentContext,
-                    get()
+                    componentContext = componentContext,
+                    getRocketsFullInfoUseCase = get(),
+                    getRocketsBasicInfoUseCase = get(),
+                    onGetRequestFromServer = { info ->
+                        navigation.push(ChildConfig.Info(info))
+                    }
                 )
             )
         }
@@ -50,7 +57,13 @@ class RootComponentImpl(
         is ChildConfig.Info -> {
             RootComponent.Child.Info(
                 InfoComponentImpl(
-                    componentContext
+                    componentContext,
+                    infoList = config.infoList,
+                    onClickBackButton = {
+                        navigation.navigate { stack ->
+                            if (stack.isNotEmpty()) stack.dropLast(1) else stack
+                        }
+                    }
                 )
             )
         }
@@ -66,6 +79,6 @@ class RootComponentImpl(
         data object Settings : ChildConfig
 
         @Serializable
-        data object Info : ChildConfig
+        data class Info(val infoList: List<RequestInfoList>) : ChildConfig
     }
 }

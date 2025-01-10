@@ -5,7 +5,7 @@ import kotlinx.coroutines.flow.MutableStateFlow
 
 interface MainPageComponent {
     val buttons: MutableStateFlow<List<MainPageRequestButton>>
-    val text: MutableStateFlow<String> //удалить!
+    val isLoading: MutableStateFlow<Boolean>
 
     fun onButtonClick(button: MainPageRequestButton)
 }

@@ -2,6 +2,7 @@ package com.example.main_screen_data.repository
 
 import com.apollographql.apollo3.ApolloClient
 import com.apollographql.apollo3.api.ApolloResponse
+import com.example.core_network.RocketsBasicQuery
 import com.example.core_network.RocketsFullQuery
 import com.example.main_screen_domain.repository.MainScreenRepository
 
@@ -13,6 +14,16 @@ class MainScreenRepositoryImpl(
             apolloClient.query(RocketsFullQuery()).execute()
 
         if (response.hasErrors()) {
+            throw Exception("GraphQL errors: ${response.errors}")
+        }
+        return response
+    }
+
+    override suspend fun requestBasicRocketsInfo(): ApolloResponse<RocketsBasicQuery.Data> {
+        val response: ApolloResponse<RocketsBasicQuery.Data> =
+            apolloClient.query(RocketsBasicQuery()).execute()
+
+        if (response.hasErrors()){
             throw Exception("GraphQL errors: ${response.errors}")
         }
         return response

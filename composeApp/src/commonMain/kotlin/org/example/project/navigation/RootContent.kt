@@ -5,8 +5,9 @@ import androidx.compose.ui.Modifier
 import com.arkivanov.decompose.extensions.compose.stack.Children
 import com.arkivanov.decompose.extensions.compose.stack.animation.fade
 import com.arkivanov.decompose.extensions.compose.stack.animation.stackAnimation
+import com.example.info_screen.ui.InfoUi
 import com.example.main_screen.ui.MainPageUi
-import com.example.settings.ui.SettingsContent
+import com.example.settings.ui.SettingsUI
 
 @Composable
 fun RootContent(component: RootComponent, modifier: Modifier = Modifier) {
@@ -17,7 +18,8 @@ fun RootContent(component: RootComponent, modifier: Modifier = Modifier) {
     ) {
         when (val child = it.instance) {
             is RootComponent.Child.MainPage -> MainPageUi(component = child.component)
-            is RootComponent.Child.Settings -> SettingsContent(component = child.component)
+            is RootComponent.Child.Settings -> SettingsUI(component = child.component)
+            is RootComponent.Child.Info -> InfoUi(component = child.component)
         }
     }
 }
