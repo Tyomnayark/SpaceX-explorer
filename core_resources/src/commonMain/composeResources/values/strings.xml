@@ -6,4 +6,19 @@
     <string name="main_screen_title">SpaceX Explorer</string>
     <string name="main_screen_subtitle">GraphQL Actions:</string>
 
+    <string name="query">Query</string>
+    <string name="subscription">Subscription</string>
+    <string name="mutation">Mutation</string>
+
+    <string name="boosters">Boosters: %1$s</string>
+    <string name="active">Active: %1$s</string>
+    <string name="company">Company: %1$s</string>
+    <string name="cost_per_launch">Cost per launch: %1$s</string>
+    <string name="country">Country: %1$s</string>
+    <string name="description">Description: %1$s</string>
+    <string name="first_flight">First flight: %1$s</string>
+    <string name="stages">Stages: %1$s</string>
+    <string name="success_rate_pct">Success rate: %1$s</string>
+    <string name="type">Type: %1$s</string>
+    <string name="wikipedia">Wikipedia: %1$s</string>
 </resources>

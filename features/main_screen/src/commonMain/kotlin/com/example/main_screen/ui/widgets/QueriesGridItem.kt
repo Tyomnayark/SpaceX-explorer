@@ -1,6 +1,7 @@
 package com.example.main_screen.ui.widgets
 
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.height
@@ -14,6 +15,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.example.core_resources.Colors
 import com.example.main_screen.models.MainPageRequestButton
 import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.resources.stringResource
@@ -22,7 +24,7 @@ import org.jetbrains.compose.resources.stringResource
 fun QueriesGridItem(
     modifier: Modifier = Modifier,
     item: MainPageRequestButton,
-){
+) {
     Box(
         modifier = modifier
             .padding(5.dp)
@@ -34,6 +36,23 @@ fun QueriesGridItem(
             ),
         contentAlignment = Alignment.Center
     ) {
+        Box(
+            modifier = Modifier
+                .padding(10.dp)
+                .background(color = Colors.orange, shape = RoundedCornerShape(5.dp))
+                .align(
+                    Alignment.TopStart
+                ),
+            contentAlignment = Alignment.Center
+        ) {
+            Text(
+                modifier = Modifier
+                    .padding(vertical = 5.dp, horizontal = 5.dp),
+                text = stringResource(item.typeTextRes),
+                fontSize = 18.sp,
+                color = Colors.white
+            )
+        }
         Image(
             painterResource(item.imageRes),
             contentDescription = null,
@@ -42,7 +61,7 @@ fun QueriesGridItem(
             contentScale = ContentScale.FillHeight
         )
         Text(
-            text = stringResource(item.textRes),
+            text = stringResource(item.nameTextRes),
             fontSize = 18.sp,
             modifier = Modifier
                 .padding(vertical = 10.dp)
