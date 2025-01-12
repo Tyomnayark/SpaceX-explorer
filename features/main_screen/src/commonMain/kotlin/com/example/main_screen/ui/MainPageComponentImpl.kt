@@ -25,7 +25,8 @@ class MainPageComponentImpl(
     override val buttons: MutableStateFlow<List<MainPageRequestButton>> = MutableStateFlow(
         listOf(
             MainPageRequestButton.FULL_ROCKETS_INFO,
-            MainPageRequestButton.BASIC_ROCKETS_INFO
+            MainPageRequestButton.BASIC_ROCKETS_INFO,
+            MainPageRequestButton.USERS_AGGREGATE_INFO
         )
     )
 
@@ -42,6 +43,10 @@ class MainPageComponentImpl(
 
                 MainPageRequestButton.BASIC_ROCKETS_INFO -> {
                     getRocketsBasicInfoUseCase.execute()
+                }
+
+                MainPageRequestButton.USERS_AGGREGATE_INFO -> {
+                    listOf()
                 }
             }
             onGetRequestFromServer(response)

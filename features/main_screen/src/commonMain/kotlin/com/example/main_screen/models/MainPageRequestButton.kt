@@ -5,9 +5,12 @@ import org.jetbrains.compose.resources.StringResource
 import src.commonMain.composeResources.Res
 import src.commonMain.composeResources.base_rocket_icon
 import src.commonMain.composeResources.base_rocket_request_text
+import src.commonMain.composeResources.users_icon
 import src.commonMain.composeResources.full_rocket_icon
 import src.commonMain.composeResources.full_rocket_request_text
 import src.commonMain.composeResources.query
+import src.commonMain.composeResources.subscription
+import src.commonMain.composeResources.users_aggregate_info
 
 
 enum class MainPageRequestButton(
@@ -24,5 +27,10 @@ enum class MainPageRequestButton(
         nameTextRes = Res.string.base_rocket_request_text,
         typeTextRes = Res.string.query,
         imageRes = Res.drawable.base_rocket_icon
+    ),
+    USERS_AGGREGATE_INFO(
+        nameTextRes = Res.string.users_aggregate_info,
+        typeTextRes = Res.string.subscription,
+        imageRes = Res.drawable.users_icon
     )
 }

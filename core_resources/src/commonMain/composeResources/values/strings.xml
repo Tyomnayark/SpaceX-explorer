@@ -2,6 +2,7 @@
 <resources>
     <string name="full_rocket_request_text">Full Rocket Info</string>
     <string name="base_rocket_request_text">Base Rocket Info</string>
+    <string name="users_aggregate_info">Users Aggregate</string>
 
     <string name="main_screen_title">SpaceX Explorer</string>
     <string name="main_screen_subtitle">GraphQL Actions:</string>

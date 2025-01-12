@@ -6,5 +6,6 @@ import com.example.core_network.utils.Constants.BASE_URL
 fun createApolloClient(baseUrl: String = BASE_URL): ApolloClient {
     return ApolloClient.Builder()
         .serverUrl(baseUrl)
+        .webSocketServerUrl(baseUrl)
         .build()
 }
